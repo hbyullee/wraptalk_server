@@ -1,0 +1,595 @@
+warning: Implicitly compiled files were not subject to annotation processing.
+  Use -proc:none to disable annotation processing or -implicit to specify a policy for implicit compilation. 
+Note: /home/hbyullee/wraptalk_server/src/com/maestro/wraptalk/dao/Redis.java uses or overrides a deprecated API. 
+Note: Recompile with -Xlint:deprecation for details. 
+Note: /home/hbyullee/wraptalk_server/src/com/maestro/wraptalk/verticle/RestVerticle.java uses unchecked or unsafe operations. 
+Note: Recompile with -Xlint:unchecked for details. 
+MLog initialization issue: slf4j found no binding or threatened to use its (dangerously silent) NOPLogger. We consider the slf4j library not found.
+MLog clients using java 1.4+ standard logging. 
+Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+Succeeded in deploying verticle 
+GET
+uri :/user/login?user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kflt9c1ay0tz1y2if5n|63295f84, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> z8kflt9c1ay0tz1y2if5n|63295f84, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/wraptalk?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+GET
+uri :/user/login?user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db connection success
+db query success
+[[15,"abc@b.com","1234","temp","temp","2015-10-27T12:01:18Z"]]
+[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]}
+db query success
+[[15,"abc@b.com","1234","temp","temp","2015-10-27T12:01:18Z"]]
+[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]}
+Unhandled exception 
+java.lang.ClassCastException: java.lang.String cannot be cast to io.vertx.core.json.JsonArray
+	at io.vertx.core.json.JsonObject.getJsonArray(JsonObject.java:202)
+	at com.maestro.wraptalk.api.LoginAPI.onExecute(LoginAPI.java:71)
+	at com.maestro.wraptalk.dao.WrapDAO$19.success(WrapDAO.java:536)
+	at com.maestro.wraptalk.dao.RedisCallback.endSuccess(RedisCallback.java:26)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:66)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:60)
+	at io.vertx.redis.impl.Command.lambda$handle$18(Command.java:154)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+Unhandled exception 
+java.lang.ClassCastException: java.lang.String cannot be cast to io.vertx.core.json.JsonArray
+	at io.vertx.core.json.JsonObject.getJsonArray(JsonObject.java:202)
+	at com.maestro.wraptalk.api.LoginAPI.onExecute(LoginAPI.java:71)
+	at com.maestro.wraptalk.dao.WrapDAO$19.success(WrapDAO.java:536)
+	at com.maestro.wraptalk.dao.RedisCallback.endSuccess(RedisCallback.java:26)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:66)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:60)
+	at io.vertx.redis.impl.Command.lambda$handle$18(Command.java:154)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+POST
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/join?user_id=hbyullee45&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/join
+query :user_id=hbyullee45&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee45","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[]
+[]
+getUserId sql success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"results":[]}
+db connection success
+db query success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"updated":1,"keys":[16]}
+com.maestro.wraptalk.api.JoinAPI callbackRedis : {"results":""}
+GET
+uri :/user/join?user_id=hbyullee45&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/join
+query :user_id=hbyullee45&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee45","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[16,"hbyullee45","1234","123219","12345","2015-10-27T12:07:23Z"]]
+[{"user_no":16,"user_id":"hbyullee45","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-27T12:07:23Z"}]
+getUserId sql success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"results":[{"user_no":16,"user_id":"hbyullee45","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-27T12:07:23Z"}]}
+POST
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/login?user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[[15,"abc@b.com","1234","temp","temp","2015-10-27T12:01:18Z"]]
+[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]}
+Unhandled exception 
+java.lang.ClassCastException: java.lang.String cannot be cast to io.vertx.core.json.JsonArray
+	at io.vertx.core.json.JsonObject.getJsonArray(JsonObject.java:202)
+	at com.maestro.wraptalk.api.LoginAPI.onExecute(LoginAPI.java:71)
+	at com.maestro.wraptalk.dao.WrapDAO$19.success(WrapDAO.java:536)
+	at com.maestro.wraptalk.dao.RedisCallback.endSuccess(RedisCallback.java:26)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:66)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:60)
+	at io.vertx.redis.impl.Command.lambda$handle$18(Command.java:154)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+POST
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/login?user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abcd@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[]
+[]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[]}
+GET
+uri :/user/join?user_id=hbyullee456&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/join
+query :user_id=hbyullee456&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee456","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[]
+[]
+getUserId sql success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"results":[]}
+db connection success
+db query success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"updated":1,"keys":[17]}
+com.maestro.wraptalk.api.JoinAPI callbackRedis : {"results":""}
+GET
+uri :/user/login?user_id=abcer@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abcer@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abcer@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[]
+[]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[]}
+GET
+uri :/user/login?user_id=hbyullee456&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/login
+query :user_id=hbyullee456&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee456","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[[17,"hbyullee456","1234","123219","12345","2015-10-27T12:10:41Z"]]
+[{"user_no":17,"user_id":"hbyullee456","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-27T12:10:41Z"}]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[{"user_no":17,"user_id":"hbyullee456","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-27T12:10:41Z"}]}
+Unhandled exception 
+java.lang.ClassCastException: java.lang.String cannot be cast to io.vertx.core.json.JsonArray
+	at io.vertx.core.json.JsonObject.getJsonArray(JsonObject.java:202)
+	at com.maestro.wraptalk.api.LoginAPI.onExecute(LoginAPI.java:71)
+	at com.maestro.wraptalk.dao.WrapDAO$19.success(WrapDAO.java:536)
+	at com.maestro.wraptalk.dao.RedisCallback.endSuccess(RedisCallback.java:26)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:66)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:60)
+	at io.vertx.redis.impl.Command.lambda$handle$18(Command.java:154)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/login?user_id=abcer@b.com&user_pw=1234&device_id=temp22&gcm_id=temp
+path :/user/login
+query :user_id=abcer@b.com&user_pw=1234&device_id=temp22&gcm_id=temp
+paramters to json :{"user_id":"abcer@b.com","user_pw":"1234","device_id":"temp22","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[]
+[]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[]}
+GET
+uri :/user/login?user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abc@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[[15,"abc@b.com","1234","temp","temp","2015-10-27T12:01:18Z"]]
+[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[{"user_no":15,"user_id":"abc@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:01:18Z"}]}
+Unhandled exception 
+java.lang.ClassCastException: java.lang.String cannot be cast to io.vertx.core.json.JsonArray
+	at io.vertx.core.json.JsonObject.getJsonArray(JsonObject.java:202)
+	at com.maestro.wraptalk.api.LoginAPI.onExecute(LoginAPI.java:71)
+	at com.maestro.wraptalk.dao.WrapDAO$19.success(WrapDAO.java:536)
+	at com.maestro.wraptalk.dao.RedisCallback.endSuccess(RedisCallback.java:26)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:66)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:60)
+	at io.vertx.redis.impl.Command.lambda$handle$18(Command.java:154)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/login?user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abcd@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[]
+[]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[]}
+GET
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+POST
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+POST
+uri :/user/join?user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/join
+query :user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abcd@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[]
+[]
+getUserId sql success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"results":[]}
+db connection success
+db query success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"updated":1,"keys":[18]}
+com.maestro.wraptalk.api.JoinAPI callbackRedis : {"results":""}
+GET
+uri :/user/join?user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/join
+query :user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[1,"hbyullee","1234","123219","12345","2015-10-23T05:56:49Z"]]
+[{"user_no":1,"user_id":"hbyullee","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-23T05:56:49Z"}]
+getUserId sql success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"results":[{"user_no":1,"user_id":"hbyullee","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-23T05:56:49Z"}]}
+GET
+uri :/user/join?user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/join
+query :user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[1,"hbyullee","1234","123219","12345","2015-10-23T05:56:49Z"]]
+[{"user_no":1,"user_id":"hbyullee","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-23T05:56:49Z"}]
+getUserId sql success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"results":[{"user_no":1,"user_id":"hbyullee","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-23T05:56:49Z"}]}
+POST
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+POST
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/login?user_id=abcde@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abcde@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abcde@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[]
+[]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[]}
+GET
+uri :/user/login?user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abcd@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abcd@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[[18,"abcd@b.com","1234","temp","temp","2015-10-27T12:20:50Z"]]
+[{"user_no":18,"user_id":"abcd@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:20:50Z"}]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[{"user_no":18,"user_id":"abcd@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp","join_date":"2015-10-27T12:20:50Z"}]}
+Unhandled exception 
+java.lang.ClassCastException: java.lang.String cannot be cast to io.vertx.core.json.JsonArray
+	at io.vertx.core.json.JsonObject.getJsonArray(JsonObject.java:202)
+	at com.maestro.wraptalk.api.LoginAPI.onExecute(LoginAPI.java:71)
+	at com.maestro.wraptalk.dao.WrapDAO$19.success(WrapDAO.java:536)
+	at com.maestro.wraptalk.dao.RedisCallback.endSuccess(RedisCallback.java:26)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:66)
+	at com.maestro.wraptalk.dao.Redis$2.handle(Redis.java:60)
+	at io.vertx.redis.impl.Command.lambda$handle$18(Command.java:154)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/login?user_id=abcde@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+path :/user/login
+query :user_id=abcde@b.com&user_pw=1234&device_id=temp&gcm_id=temp
+paramters to json :{"user_id":"abcde@b.com","user_pw":"1234","device_id":"temp","gcm_id":"temp"}
+com.maestro.wraptalk.api.LoginAPI execute !!
+db connection success
+db query success
+[]
+[]
+com.maestro.wraptalk.api.LoginAPI onExecute : {"results":[]}
+POST
+uri :/user/join
+path :/user/join
+query :null
+paramters to json :{}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[11,"null","null","null","null","2015-10-27T10:23:52Z"]]
+[{"user_no":11,"user_id":"null","user_pw":"null","device_id":"null","gcm_id":"null","join_date":"2015-10-27T10:23:52Z"}]
+getUserId sql success
+Unhandled exception 
+java.lang.IllegalStateException: Response has already been written
+	at io.vertx.core.http.impl.HttpServerResponseImpl.checkWritten(HttpServerResponseImpl.java:551)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end0(HttpServerResponseImpl.java:381)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:306)
+	at io.vertx.core.http.impl.HttpServerResponseImpl.end(HttpServerResponseImpl.java:291)
+	at com.maestro.wraptalk.api.JoinAPI.onExecute(JoinAPI.java:77)
+	at com.maestro.wraptalk.dao.WrapDAO$16.success(WrapDAO.java:467)
+	at com.maestro.wraptalk.dao.QueryCallback.endEvent(QueryCallback.java:39)
+	at com.maestro.wraptalk.dao.AbstractQuery.lambda$null$3(AbstractQuery.java:96)
+	at io.vertx.core.impl.FutureImpl.checkCallHandler(FutureImpl.java:135)
+	at io.vertx.core.impl.FutureImpl.setHandler(FutureImpl.java:100)
+	at io.vertx.core.impl.ContextImpl.lambda$null$14(ContextImpl.java:305)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$16(ContextImpl.java:335)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:358)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:357)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at java.lang.Thread.run(Thread.java:745)
+
+GET
+uri :/user/join?user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/join
+query :user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+Query Failed: Failed to get ResultSet The last packet successfully received from the server was 80,587,070 milliseconds ago.  The last packet sent successfully to the server was 80,587,070 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.
+getUserId sql fail
+com.maestro.wraptalk.api.JoinAPI onExecute : {"result":"fail","result_text":"DB query fail"}
+GET
+uri :/user/join?user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+path :/user/join
+query :user_id=hbyullee&user_pw=1234&gcm_id=12345&device_id=123219
+paramters to json :{"user_id":"hbyullee","user_pw":"1234","gcm_id":"12345","device_id":"123219"}
+com.maestro.wraptalk.api.JoinAPI execute !!
+getUserId sql execute
+db connection success
+db query success
+[[1,"hbyullee","1234","123219","12345","2015-10-23T05:56:49Z"]]
+[{"user_no":1,"user_id":"hbyullee","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-23T05:56:49Z"}]
+getUserId sql success
+com.maestro.wraptalk.api.JoinAPI onExecute : {"results":[{"user_no":1,"user_id":"hbyullee","user_pw":"1234","device_id":"123219","gcm_id":"12345","join_date":"2015-10-23T05:56:49Z"}]}

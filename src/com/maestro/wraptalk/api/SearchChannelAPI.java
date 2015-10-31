@@ -25,19 +25,17 @@ public class SearchChannelAPI extends BaseAPI{
 		if(params.isEmpty() || !checkValidation(params)){
 		
 			JsonObject rs = new JsonObject();
-			rs.put("result_code", 0);
+			rs.put("result_code", -1);
 			rs.put("result_msg", "params error");
 			request.response().end(rs.toString());
 		}
-
-		
 	}
 
 
 	@Override
 	public void onExecute(int what, JsonObject resultJO) {
 
-		if(resultJO.containsKey("result") && "fail".equals(resultJO.getString("result"))){
+		if(resultJO.containsKey("result_code") && resultJO.getInteger("result_code")==-1){
 			request.response().end(resultJO.toString());
 			return;
 		}
@@ -46,8 +44,8 @@ public class SearchChannelAPI extends BaseAPI{
 		switch (what) {
 		case WrapDAO.getSession:
 			if(resultJO.getString("results").length()<1){
-				rs.put("result", "fail");
-				rs.put("result_text", "로그인이 필요합니다.");
+				rs.put("result_code", -1 );
+				rs.put("result_msg", "login please");
 				request.response().end(rs.toString());
 				break;
 			}
@@ -59,9 +57,9 @@ public class SearchChannelAPI extends BaseAPI{
 			break;
 	
 		case WrapDAO.getChannel2:
-			rs.put("result", "success");
-			rs.put("result_text", "채널 리스트입니다.");
-			rs.put("list_app", resultJO.getJsonArray("results"));
+			rs.put("result_code", 0);
+			rs.put("result_msg", "success to search channel list");
+			rs.put("list_channel", resultJO.getJsonArray("results"));
 			request.response().end(rs.toString());
 		}
 		

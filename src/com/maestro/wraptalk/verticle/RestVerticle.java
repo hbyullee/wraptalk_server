@@ -1,23 +1,23 @@
 package com.maestro.wraptalk.verticle;
 
 import io.vertx.core.AbstractVerticle;
-import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
-import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.json.JsonObject;
+import io.vertx.core.logging.Logger;
+import io.vertx.core.logging.LoggerFactory;
 import io.vertx.ext.web.Route;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
-import io.vertx.redis.RedisClient;
 
 import java.lang.reflect.Method;
 
 import com.maestro.wraptalk.dao.AbstractQuery;
 import com.maestro.wraptalk.dao.Redis;
 import com.maestro.wraptalk.dao.WrapDAO;
+import com.maestro.wraptalk.utils.Util;
 
 public class RestVerticle extends AbstractVerticle  {
     
@@ -41,7 +41,8 @@ public class RestVerticle extends AbstractVerticle  {
     		{"/user/setAppConfig", com.maestro.wraptalk.api.SetAppConfigAPI.class, "GET"},
     		{"/user/getAppConfig", com.maestro.wraptalk.api.GetAppConfigAPI.class, "GET"},
     		{"/user/getNoticeList", com.maestro.wraptalk.api.GetNoticeListAPI.class, "GET"},
-    		{"/user/changeChannelSet", com.maestro.wraptalk.api.ChangeChannelSetAPI.class, "GET"}
+    		{"/user/changeChannelSet", com.maestro.wraptalk.api.ChangeChannelSetAPI.class, "GET"},
+    		{"/user/customQuery", com.maestro.wraptalk.api.CustomQueryAPI.class, "GET"}
     		
     };
     
@@ -50,6 +51,7 @@ public class RestVerticle extends AbstractVerticle  {
 	@Override
 	public void start() throws Exception {
 		super.start();
+		
 	
 		redis = new Redis(vertx);
 		
@@ -70,15 +72,14 @@ public class RestVerticle extends AbstractVerticle  {
 				String uri = request.uri();
 				String path = request.path();
 				String query = request.query();
-				
 				JsonObject param = new JsonObject();
 				params.forEach(entry -> param.put(entry.getKey(), entry.getValue()));
 				
-				System.out.println(request.method().name());
-				System.out.println("uri :" + uri);
-				System.out.println("path :" + path);
-				System.out.println("query :" + query);
-				System.out.println("paramters to json :" + param.toString());
+				Util.logDebug(request.method().name());
+				Util.logDebug("uri :" + uri);
+				Util.logDebug("path :" + path);
+				Util.logDebug("query :" + query);
+				Util.logDebug("paramters to json :" + param.toString());
 				
 				request.endHandler(new Handler<Void>() {
 					
@@ -86,17 +87,18 @@ public class RestVerticle extends AbstractVerticle  {
 					public void handle(Void empty) {
 						
 						for(int i=0; i<reqClasses.length; i++) {
-//							if(path.equals(reqClasses[i][0]) && request.method().name().equals(reqClasses[i][2])) {
 							if(path.equals(reqClasses[i][0])) {
+//							if(path.equals(reqClasses[i][0])) {
 								
 								try {
 									
 									Class cls = (Class)reqClasses[i][1];
 									Object object = cls.newInstance();
-									System.out.println(object.getClass().getName() + " execute !!");
+									Util.logDebug(object.getClass().getName() + " execute !!");
 									Class[] paramTypes = { HttpServerRequest.class };
 									Method apiMethod = cls.getDeclaredMethod("execute", paramTypes);
 									request.response().putHeader("content-type", "application/json");
+									request.response().putHeader("Access-Control-Allow-Origin", "*" );
 									apiMethod.invoke(object, request);  
 									break;
 									
@@ -108,6 +110,7 @@ public class RestVerticle extends AbstractVerticle  {
 							}
 							if(i==reqClasses.length -1){
 								request.response().end("error : "+ "not exist api");
+								break;
 							}
 							
 						}

@@ -34,15 +34,25 @@ public abstract class QueryCallback {
 	
 		JsonObject response = new JsonObject();
 		response.put("results", jsonArray);
-		System.out.println(rs.getResults());
-		System.out.println(rs.getRows());
 		success( con, response ) ;
 		
 	}
 	
+	public void customEvent( SQLConnection con, ResultSet rs){
+		
+		success( con, rs.toJson() ) ;
+		
+	}
+	
+	public void customEvent( SQLConnection con, UpdateResult rs){
+		
+		success( con, rs.toJson() ) ;
+		
+	}
+	
+	
 	public void endEvent( SQLConnection con, UpdateResult rs) 
 	{
-		
 		success( con, rs.toJson() ) ;
 	}
 	

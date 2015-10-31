@@ -5,17 +5,19 @@ import io.vertx.core.json.JsonObject;
 public abstract class RedisCallback {
 	
 	public void endSuccess(String result){
-		
 		JsonObject response = new JsonObject();
-		response.put("results", result);
+		if(result==null)
+			response.put("results", "");
+		else
+			response.put("results", result);
+
 		success( response ) ;
 		
 	}
 	
 	public void endFail(String result){
-		
 		JsonObject response = new JsonObject();
-		response.put("results", result);
+		response.put("results", "");
 		success( response ) ;
 
 	}

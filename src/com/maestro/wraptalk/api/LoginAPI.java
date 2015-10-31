@@ -16,12 +16,12 @@ public class LoginAPI extends BaseAPI{
 		init(request);
 		
 		if(params.isEmpty() || !checkValidation(params)){
-		
 			JsonObject rs = new JsonObject();
-			rs.put("result_code", 0);
+			rs.put("result_code", -1);
 			rs.put("result_msg", "params error");
 			request.response().end(rs.toString());
 		}
+		
 		wrapDAO.getUser(this, params.getString("user_id"), params.getString("user_pw"), params.getString("gcm_id"), params.getString("device_id"));
 		
 	}
@@ -59,7 +59,7 @@ public class LoginAPI extends BaseAPI{
 
 	@Override
 	public void onExecute(int what, JsonObject resultJO) {
-		if(resultJO.containsKey("result") && "fail".equals(resultJO.getString("result"))){
+		if(resultJO.containsKey("result_code") && resultJO.getInteger("result_code")==-1){
 			request.response().end(resultJO.toString());
 			return;
 		}
@@ -72,15 +72,15 @@ public class LoginAPI extends BaseAPI{
 				String token = Util.getToken(params.getString("user_id"));
 				wrapDAO.setSession(this, token);
 				
-				rs.put("result", "success");
-				rs.put("result_text", "로그인 되었습니다.");
+				rs.put("result_code", 0);
+				rs.put("result_msg", "login success");
 				rs.put("token", token);
 				request.response().end(rs.toString());
 
 				
 			}else{
-				rs.put("result", "fail");
-				rs.put("result_text", "회원정보가 일치하지 않습니다.");
+				rs.put("result_code", -1);
+				rs.put("result_msg", "not correct user info");
 				request.response().end(rs.toString());
 			}
 			break;

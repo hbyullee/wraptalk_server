@@ -1,6 +1,8 @@
 package com.maestro.wraptalk.dao;
 
 
+import com.maestro.wraptalk.dao.QueryCallback;
+
 import io.vertx.core.Vertx;
 import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.JsonObject;
@@ -104,6 +106,60 @@ import io.vertx.ext.sql.UpdateResult;
 	                    if(autoConClose)
 	                        close(con);
 	                });
+                }
+            } else {
+                // Failed to get connection - deal with it
+                fail(null, "Failed to get Connection "+res.cause().getMessage());
+//                if(queryCallback != null)
+                queryCallback.endEvent();
+            }
+        });
+    }
+    
+    public void execute2(String query, QueryCallback queryCallback ) {
+        
+    	client.getConnection(res -> {
+            if (res.succeeded()) {
+            	System.out.println("db connection success");
+                SQLConnection con = res.result();
+                if(query.indexOf("SELECT")>-1||query.indexOf("select")>-1){
+                	con.query(query, res2 -> {
+	                    if (res2.succeeded()) {
+	                    	System.out.println("db query success");
+	                        ResultSet rs = res2.result();
+	                        
+//	                        if(retMessage != null) 
+//	                        if(queryCallback != null)
+	                        	queryCallback.customEvent(con, rs);
+	                    }
+	                    else {
+	                    	
+	                        fail(con, "Failed to get ResultSet "+res2.cause().getMessage());
+//	                        if(queryCallback != null)
+	                        	queryCallback.endEvent();
+	                           }
+	                    if(autoConClose)
+	                        close(con);
+	                });
+                }else{
+                	con.update(query, res2 -> {
+	                    if (res2.succeeded()) {
+	                    	System.out.println("db query success");
+	                        UpdateResult rs = res2.result();
+	                        
+//	                        if(retMessage != null) 
+//	                        if(queryCallback != null)
+	                        	queryCallback.customEvent(con, rs);
+	                    }
+	                    else {
+	                        fail(con, "Failed to get ResultSet "+res2.cause().getMessage());
+//	                        if(queryCallback != null)
+	                        	queryCallback.endEvent();
+	                           }
+	                    if(autoConClose)
+	                        close(con);
+	                });
+                	
                 }
             } else {
                 // Failed to get connection - deal with it

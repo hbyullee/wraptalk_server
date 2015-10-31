@@ -25,7 +25,7 @@ public class SetAppConfigAPI extends BaseAPI{
 		if(params.isEmpty() || !checkValidation(params)){
 		
 			JsonObject rs = new JsonObject();
-			rs.put("result_code", 0);
+			rs.put("result_code", -1);
 			rs.put("result_msg", "params error");
 			request.response().end(rs.toString());
 		}
@@ -37,7 +37,7 @@ public class SetAppConfigAPI extends BaseAPI{
 	@Override
 	public void onExecute(int what, JsonObject resultJO) {
 
-		if(resultJO.containsKey("result") && "fail".equals(resultJO.getString("result"))){
+		if(resultJO.containsKey("result_code") && resultJO.getInteger("result_code")==-1){
 			request.response().end(resultJO.toString());
 			return;
 		}
@@ -46,19 +46,19 @@ public class SetAppConfigAPI extends BaseAPI{
 		switch (what) {
 		case WrapDAO.getSession:
 			if(resultJO.getString("results").length()<1){
-				rs.put("result", "fail");
-				rs.put("result_text", "로그인이 필요합니다.");
+				rs.put("result_code", -1);
+				rs.put("result_msg", "login please");
 				request.response().end(rs.toString());
 				break;
 			}
 			
-//			wrapDAO.setGlobalConfig(this, Util.getUserId(params.getString("token")));
+			wrapDAO.setAppConfig(this, params.getString("app_id"), Util.getUserId(params.getString("token")), params.getString("alarm_onoff"));
 			break;
 	
-		case WrapDAO.setGlobalConfig:
-			rs.put("result", "success");
-			rs.put("result_text", "설정 정보를 수정하였습니다.");
-			rs.put("list_app", resultJO.getJsonArray("results"));
+		case WrapDAO.setAppConfig:
+			rs.put("result_code", 0);
+			rs.put("result_msg", "success to update app config");
+//			rs.put("list_app", resultJO.getJsonArray("results"));
 			request.response().end(rs.toString());
 		}
 		

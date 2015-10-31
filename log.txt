@@ -1,0 +1,43 @@
+MLog initialization issue: slf4j found no binding or threatened to use its (dangerously silent) NOPLogger. We consider the slf4j library not found.
+Oct 27, 2015 7:57:03 PM com.mchange.v2.log.MLog 
+INFO: MLog clients using java 1.4+ standard logging.
+Oct 27, 2015 7:57:22 PM com.mchange.v2.c3p0.C3P0Registry 
+INFO: Initializing c3p0-0.9.5-pre10 [built 06-November-2014 02:02:55 -0800; debug? true; trace: 10]
+GET
+uri :/user/registApp?user_id=hbyullee77&token=dcc4c6e77313da9daa00e5e5a4e8042559136ccb1344002caf7a02ae8a1521e7_user_hbyullee77&app_id=com.haha.sasdf
+path :/user/registApp
+query :user_id=hbyullee77&token=dcc4c6e77313da9daa00e5e5a4e8042559136ccb1344002caf7a02ae8a1521e7_user_hbyullee77&app_id=com.haha.sasdf
+paramters to json :{"user_id":"hbyullee77","token":"dcc4c6e77313da9daa00e5e5a4e8042559136ccb1344002caf7a02ae8a1521e7_user_hbyullee77","app_id":"com.haha.sasdf"}
+com.maestro.wraptalk.api.RegistAppAPI execute !!
+getSession sql execute
+Oct 27, 2015 7:57:25 PM io.vertx.core.impl.ContextImpl
+SEVERE: Unhandled exception
+java.lang.Error: Unresolved compilation problem: 
+	The method callbackSQL(int, JsonObject) is undefined for the type BaseAPI
+
+	at com.maestro.wraptalk.dao.WrapDAO$15.success(WrapDAO.java:424)
+	at com.maestro.wraptalk.dao.RedisCallback.endSuccess(RedisCallback.java:11)
+	at com.maestro.wraptalk.dao.Redis$1.handle(Redis.java:49)
+	at com.maestro.wraptalk.dao.Redis$1.handle(Redis.java:1)
+	at io.vertx.redis.impl.AbstractRedisClient.lambda$send$3(AbstractRedisClient.java:240)
+	at io.vertx.redis.impl.RedisConnection.handleReply(RedisConnection.java:88)
+	at io.vertx.redis.impl.ReplyParser.handle(ReplyParser.java:154)
+	at io.vertx.redis.impl.ReplyParser.handle(ReplyParser.java:6)
+	at io.vertx.core.net.impl.NetSocketImpl.handleDataReceived(NetSocketImpl.java:309)
+	at io.vertx.core.net.impl.VertxNetHandler.lambda$channelRead$27(VertxNetHandler.java:54)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$15(ContextImpl.java:312)
+	at io.vertx.core.impl.ContextImpl.executeFromIO(ContextImpl.java:217)
+	at io.vertx.core.net.impl.VertxNetHandler.channelRead(VertxNetHandler.java:54)
+	at io.vertx.core.net.impl.VertxNetHandler.channelRead(VertxNetHandler.java:31)
+	at io.vertx.core.net.impl.VertxHandler.channelRead(VertxHandler.java:124)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:308)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:294)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:111)
+	at java.lang.Thread.run(Thread.java:745)
+

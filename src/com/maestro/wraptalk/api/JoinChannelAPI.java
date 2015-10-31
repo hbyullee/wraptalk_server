@@ -25,7 +25,7 @@ public class JoinChannelAPI extends BaseAPI{
 		if(params.isEmpty() || !checkValidation(params)){
 		
 			JsonObject rs = new JsonObject();
-			rs.put("result_code", 0);
+			rs.put("result_code", -1);
 			rs.put("result_msg", "params error");
 			request.response().end(rs.toString());
 		}
@@ -35,7 +35,7 @@ public class JoinChannelAPI extends BaseAPI{
 	@Override
 	public void onExecute(int what, JsonObject resultJO) {
 
-		if(resultJO.containsKey("result") && "fail".equals(resultJO.getString("result"))){
+		if(resultJO.containsKey("result_code") && resultJO.getInteger("result_code")==-1){
 			request.response().end(resultJO.toString());
 			return;
 		}
@@ -44,18 +44,27 @@ public class JoinChannelAPI extends BaseAPI{
 		switch (what) {
 		case WrapDAO.getSession:
 			if(resultJO.getString("results").length()<1){
-				rs.put("result", "fail");
-				rs.put("result_text", "로그인이 필요합니다.");
+				rs.put("result_code", -1);
+				rs.put("result_msg", "login please");
 				request.response().end(rs.toString());
 				break;
 			}
+			wrapDAO.
 			
-			wrapDAO.setUserChannel(this, params.getString("channel_id"), Util.getUserId(params.getString("token")), params.getString("nick"));
-	
+			if(params.containsKey("channel_pw"))
+				wrapDAO.setUserChannel(this, Util.getUserId(params.getString("token")), params.getString("app_id"), params.getString("channel_id"), params.getString("nick"), params.getString("alarm_onoff"), params.getString("channel_pw"));
+			else
+				wrapDAO.setUserChannel(this, Util.getUserId(params.getString("token")), params.getString("app_id"), params.getString("channel_id"), params.getString("nick"), params.getString("alarm_onoff"));
+				
+			break;
+			
 		case WrapDAO.setUserChannel:
-			rs.put("result", "success");
-			rs.put("result_text", "채팅방에 입장하였습니다.");
+			
+			rs.put("result_code", 0);
+			rs.put("result_msg", "success to join channel");
+			
 			request.response().end(rs.toString());
+			break;
 		}
 		
 	}
